@@ -8,7 +8,7 @@ using Plots
 plotlyjs()
 
 # FEM routines
-include("./DiscTools/FEM.jl")
+include("../DiscTools/FEM.jl")
 using DataInterpolations
 
 # Prandtl Mixing Length Model

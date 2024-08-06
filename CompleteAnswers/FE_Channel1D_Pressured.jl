@@ -6,7 +6,7 @@ import StatsBase
 using Plots
 plotlyjs()
 
-include("./DiscTools/FEM.jl")
+include("../DiscTools/FEM.jl")
 using DataInterpolations
 
 ## Functions to solve the Poisson Equation

@@ -8,7 +8,7 @@ using Plots
 plotlyjs()
 
 # Chebyshev routines
-include("./DiscTools/chebdif.jl")
+include("../DiscTools/chebdif.jl")
 
 # Prandtl Mixing Length Model
     # Based on 

@@ -7,7 +7,7 @@ using MAT
 using Plots
 plotlyjs()
 
-include("./DiscTools/chebdif.jl")
+include("../DiscTools/chebdif.jl")
 
 ## Functions to solve the Poisson Equation
 function Poi_Forced(p)
