@@ -6,7 +6,7 @@ NFFDy workshop on data assimilation with `Turing.jl`, using Poiseuille/Channel f
 2. Download the whole repo.
 3. Go to the folder and run the following command in `JULIA` before the workshop to set up your environment and get the necessary packages.
 ```JULIA
-] activate VirtualEnv; ] add Turing, StatsPlots, StatsBase, Distributions, Optim, SparseArrays, LinearAlgebra, Plots, PlotlyJS, NonlinearSolve, MAT, DataInterpolations, ForwardDiff, ReverseDiff;  
+import Pkg;Pkg.activate("VirtualEnv");Pkg.add(["Turing","StatsPlots","StatsBase","Distributions","Optim","SparseArrays","LinearAlgebra","Plots","PlotlyJS","NonlinearSolve","MAT", "DataInterpolations","ForwardDiff","ReverseDiff"]);  
 ```
 4. Open the folder in VSCode and change the environment to `VirtualEnv` (select the folder `VirtualEnv`).
 5. Have fun playing with the scripts!
