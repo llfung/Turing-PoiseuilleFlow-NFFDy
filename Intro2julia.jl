@@ -23,6 +23,7 @@
 # Here's an example of declaring a variable and assigning a value to it:
 x = 10 # x is an int64
 y = 10.0 # y is a float64
+str = "Hello, World!" # str is a string
 
 # Variable names
 # JULIA support unicode characters in variable names, which means you can use Greek letters and other symbols in your variable names.
@@ -178,10 +179,6 @@ nt = (a=10, b=2, c=3, d=4)
 println(nt[:a]) # Output: 10 
 
 ## Functions
-
-# Julia allows you to define your own functions using the function keyword.
-
-# Here's an example of a function that calculates the square of a number:
 function square(x)
     return x^2
 end
