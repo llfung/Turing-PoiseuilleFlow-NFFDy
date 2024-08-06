@@ -1,5 +1,5 @@
 ## Initialise the environment
-using Turing, ReverseDiff, StatsPlots, Distributions, Optim, LinearAlgebra, NonlinearSolve
+using Turing, ForwardDiff, StatsPlots, Distributions, Optim, LinearAlgebra, NonlinearSolve
 import StatsBase
 using MAT
 
@@ -73,7 +73,7 @@ plot!(plt,ymesh,sol, label="Prandtl Mixing Length (Prior)")
     p_local = (G=p.G,Re=p.Re,Ap=exp(logAp),κ=exp(logκ))
     # p_local = (G=p.G,Re=p.Re,κ=κ)
     prob_local = NonlinearProblem(TurbulentChannel_RANS,u0,p_local)
-    sol_local = solve(prob_local,SimpleNewtonRaphson();maxiters=100,reltol=1e-6)
+    sol_local = solve(prob_local,NewtonRaphson();maxiters=100,reltol=1e-6)
     # Interpolation
     prediction = chebint(sol_local,(datamesh.*2.0.-1.0))
 
@@ -93,5 +93,5 @@ StatsBase.coeftable(map_estimate)
 p_result = (G=p.G,Re=p.Re,Ap=exp(map_estimate.values[:logAp]),κ=exp(map_estimate.values[:logκ]))
 
 prob_result = NonlinearProblem(TurbulentChannel_RANS,u0,p_result)
-sol_result = solve(prob_result,SimpleNewtonRaphson();maxiters=100,reltol=1e-6)
+sol_result = solve(prob_result,NewtonRaphson();maxiters=100,reltol=1e-6)
 plot!(plt,ymesh,sol_result, label="Prandtl Mixing Length (MAP)")

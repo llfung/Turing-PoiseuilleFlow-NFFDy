@@ -58,7 +58,7 @@ p = (G=-1.0,Re=DNSData["Re"],Ap=exp((logAp_lb+logAp_ub)/2),κ=exp((logκ_lb+log�
 ## Solving the Forward Problem
 u0 = (ymesh.-1.0).^2.0 *p.Re/2.0
 prob = NonlinearProblem(TurbulentChannel_RANS,u0,p)
-sol = solve(prob,SimpleNewtonRaphson();maxiters=100,reltol=1e-8)
+sol = solve(prob,NewtonRaphson();maxiters=100,reltol=1e-8)
 
 ## Plotting the solution
 plt = plot(DNSData["y"],DNSData["U"],label="DNS",legend=:bottomright)
@@ -74,7 +74,7 @@ plot!(plt,ymesh,sol, label="Prandtl Mixing Length (Prior)")
     p_local = (G=p.G,Re=p.Re,Ap=exp(logAp),κ=exp(logκ))
     # p_local = (G=p.G,Re=p.Re,κ=exp(logκ))
     prob_local = NonlinearProblem(TurbulentChannel_RANS,u0,p_local)
-    sol_local = solve(prob_local,SimpleNewtonRaphson();maxiters=100,reltol=1e-6)
+    sol_local = solve(prob_local,NewtonRaphson();maxiters=100,reltol=1e-6)
     # Interpolation
     SolInterp_loc = LinearInterpolation(sol_local, ymesh)
     prediction = SolInterp_loc.(datamesh) # piecewise linear interpolation
