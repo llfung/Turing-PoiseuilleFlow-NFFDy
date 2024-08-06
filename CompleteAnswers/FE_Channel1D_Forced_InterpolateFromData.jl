@@ -92,5 +92,5 @@ for i in 1:Ny
     # f_mean[i] = chain_summary[Symbol("f[$i]"), :mean]
 end
 
-plot(ymesh,f_mean)
-plot!(datamesh,vec(DataFile["f"]))
+plot(ymesh,f_mean; label="Learned f(y)")
+plot!(datamesh,vec(DataFile["f"]); label="True f(y)")

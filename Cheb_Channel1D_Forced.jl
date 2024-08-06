@@ -85,5 +85,5 @@ for i in 1:Ny-2
     # f_assim[i] = chain_summary[Symbol("f[$i]"), :mean]
 end
 
-plot(ymesh[2:Ny-1],f_assim)
-plot!(datamesh,vec(DataFile["f"]))
+plot(ymesh[2:Ny-1],f_assim; label="Learned f(y)")
+plot!(datamesh,vec(DataFile["f"]); label="True f(y)")
